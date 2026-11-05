@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset ="UTF-8">
+        <meta name = "viewport" content =" width=device-width, initial-scale=1">
+        <title>Personal Profile Form</title>
+        <link rel ="stylesheet" href="css/style.css">
+    </head>
+      
+    <body>
+        <main class="card">
+            
+            <h1>Personal Profile</h1>
+        
+            <form action ="ProfileServlet" method ="post">
+            
+                <label for ="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="eg: Muhammad Danial Hakimi" required><br>
+                <br>
+                <label for ="studentId">Student ID</label>
+                <input type="text" id="studentId" name="studentId" placeholder="eg: 2026138509" required><br>
+                <br>
+                <label for ="programme">Programme</label>
+                <input type="text" id ="programme" name="programme" placeholder="eg: CS240" required><br>
+                <br>
+                <label for="email">Email</label>
+                <input type ="email" id="email" name="email" placeholder="eg: dhakimi401@gmail.com" required><br>
+                <br>
+                <label for="hobbies">Hobbies</label>
+                <input type="text" id="hobbies" name="hobbies" placeholder="eg: Reading, Gaming, Music"><br>
+                <br>
+                <label for="intro">Short Self-Introduction</label>
+                <textarea rows="5" id="intro" name="intro" maxlength="50" required></textarea><br>
+                <small id="wordCount">0/50 characters</small>
+                <br>   
+                <button type="submit">Generate Profile</button>
+            </form>
+            
+        </main>
+        <script>
+            const intro = document.getElementById("intro");
+            const counter = document.getElementById("wordCount");
+            const MAX_CHARS = 50;
+
+            intro.addEventListener("input", function () {
+                const count = intro.value.length;
+
+                counter.textContent = count + " / " + MAX_CHARS + " characters";
+                counter.style.color = count >= MAX_CHARS ? "#dc2626" : "#6b7280";
+            });
+        </script>  
+    </body>
+</html>
